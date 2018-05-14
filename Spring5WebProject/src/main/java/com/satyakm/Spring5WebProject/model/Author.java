@@ -1,5 +1,7 @@
 package com.satyakm.Spring5WebProject.model;
 
+import org.springframework.beans.factory.annotation.Required;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -47,6 +49,7 @@ public class Author {
         return lastName;
     }
 
+    @Required
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
