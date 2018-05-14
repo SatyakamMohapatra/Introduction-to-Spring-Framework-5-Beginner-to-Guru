@@ -1,5 +1,8 @@
 package com.satyakm.Spring5WebProject.model;
 
+import org.hibernate.validator.internal.constraintvalidators.bv.NotBlankValidator;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,12 +10,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Publisher {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String address;
 
-    public Publisher() { }
+    public Publisher() {
+    }
 
     public Publisher(String name, String address) {
         this.name = name;
@@ -42,18 +47,19 @@ public class Publisher {
 
         Publisher publisher = (Publisher) o;
 
-        return name != null ? name.equals(publisher.name) : publisher.name == null;
+        return id != null ? id.equals(publisher.id) : publisher.id == null;
     }
 
     @Override
     public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+        return id != null ? id.hashCode() : 0;
     }
 
     @Override
     public String toString() {
         return "Publisher{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }
