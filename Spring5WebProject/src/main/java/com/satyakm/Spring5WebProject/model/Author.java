@@ -1,5 +1,7 @@
 package com.satyakm.Spring5WebProject.model;
 
+import org.springframework.beans.factory.annotation.Required;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +16,11 @@ public class Author {
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 
-    public Author() {
+    public Author() {  }
+
+    public Author(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Author(String firstName, String lastName, Set<Book> books) {
@@ -43,6 +49,7 @@ public class Author {
         return lastName;
     }
 
+    @Required
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
