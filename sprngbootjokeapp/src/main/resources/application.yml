@@ -1,0 +1,8 @@
+#db.username=appOracle
+#db.password=appPassword
+#db.url=appSomeurl
+
+db:
+  username: ymlOracle
+  password: ymlPassword
+  url: ymlSomeUrl
