@@ -1,6 +1,8 @@
 package com.satyakm.sprngbootjokeapp.controller;
 
 import com.satyakm.sprngbootjokeapp.service.JokeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,6 @@ public class jokeController {
 
         model.addAttribute("joke",jokeService.getJoke());
         System.out.println(jokeService.getJoke());
-        return "chucknorris".substring(0,5);
+        return "chucknorris";
     }
 }
